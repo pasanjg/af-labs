@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        // q1
+
+        // var message = function(){
+        //     console.log("Hello World from JS!");
+        // }
+        //
+        // function printMessage(parameter){
+        //     parameter();
+        // }
+        //
+        // printMessage(message());
+
+
+        // q2
+
+        var jsonObj = {
+            "msg" : "Hello World!",
+            "func" : (msg) => {
+                console.log(msg);
+            }
+        }
+
+
+        function printJson(object) {
+            object.func(object.msg);
+        }
+
+        printJson(jsonObj);
+
+
+        // q3
+
+        var vehicleName = "Car";
+
+        function printVehicleName(){
+            console.log(this.vehicleName);
+        }
+
+
+        var Vehicle = {
+            vehicleName : "Van",
+            getVehicleName : printVehicleName
+        }
+
+        printVehicleName();
+        Vehicle.getVehicleName();
+
+
+        // q4
+
+        function taxCalculator(value){
+            var tax = value;
+            return function getTax(amount){
+                return amount * tax/100;
+            }
+        }
+
+
+        var calculate = taxCalculator(20);
+        console.log(calculate(100));
+
+
+        // q5
+
+        function fetchUsers() {
+            fetch('https://api.github.com/users').then(function (response) {
+            return response.json();
+        }).then(function (json) {
+                console.log(json);
+            });
+        }
+
+
+        // function fetchUsers() {
+        //     return fetch('https://api.github.com/users')
+        //         .then(response => response.json());
+        // }
+        // fetchUsers().then(function (json) {
+        //     console.log(json); })
+
+        fetchUsers();
+
+
+    </script>
+
+</body>
+</html>
