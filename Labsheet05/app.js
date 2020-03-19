@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost:27017/expressjsSample', err => {
     }
 });
 
-const UserModel = require('./user.model');
+const UserModel = require('./user.js');
 
 app.use(express.static(__dirname));
 
@@ -80,13 +80,3 @@ app.listen(3000, err => {
     console.log('app listening on port 3000');
 });
 
-
-const UserSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    birthday: Date
-});
-
-const User = mongoose.model('User', UserSchema);
-
-module.exports = User;
